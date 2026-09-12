@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+﻿import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-2">
             <h2 className="text-3xl font-serif mb-2">Mehak Sethi</h2>
-            <p className="text-cream/60 italic font-serif">"Author • Poet • Storyteller"</p>
+            <p className="text-cream/60 italic font-serif">"Author • poetess • Storyteller"</p>
             <p className="mt-6 text-sm text-cream/40 max-w-sm">
               "She remembered who she was and the game changed!!!"
               <br/><br/>
@@ -44,3 +44,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

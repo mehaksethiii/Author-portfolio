@@ -1,140 +1,58 @@
+import React from 'react';
 import { motion } from 'framer-motion';
-import { useState } from 'react';
-import axios from 'axios';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    reason: 'General Message',
-    message: ''
-  });
-  const [status, setStatus] = useState(null);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setStatus('sending');
-    try {
-      await axios.post('http://localhost:5000/api/messages', formData);
-      setStatus('success');
-      setFormData({ name: '', email: '', reason: 'General Message', message: '' });
-      setTimeout(() => setStatus(null), 5000);
-    } catch (err) {
-      console.error(err);
-      setStatus('error');
-    }
-  };
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   return (
-    <div className="py-24 px-4 min-h-screen flex items-center justify-center">
-      <div className="max-w-4xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-16">
+    <div className="py-24 px-4 min-h-screen flex items-center justify-center bg-[#F5EBDD]">
+      <div className="max-w-3xl mx-auto w-full text-center">
         <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex flex-col justify-center"
+          className="flex flex-col items-center justify-center bg-white p-12 md:p-20 shadow-xl border-[8px] border-[#FDFBF7] rounded-lg relative overflow-hidden"
         >
-          <h1 className="text-5xl font-serif mb-6">Write to Me</h1>
-          <p className="text-charcoal/70 dark:text-cream/70 mb-8 leading-relaxed">
-            Whether you want to share your thoughts on my books, request a collaboration, or just say helloâ€”I'd love to hear from you. 
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'url("/images/floral_card_border.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+          
+          <h1 className="text-5xl md:text-7xl font-cursive text-[#2A1812] mb-6 relative z-10">Write to Me</h1>
+          <div className="w-16 h-[1px] bg-[#A97872] mb-8 relative z-10"></div>
+          
+          <p className="text-[#3A241A]/80 mb-12 leading-relaxed text-lg max-w-lg relative z-10 font-sans">
+            Whether you want to share your thoughts on my books, request a collaboration, or just say hello—I'd absolutely love to hear from you. 
           </p>
-          <div className="space-y-6 text-sm tracking-widest uppercase">
-            <div className="mb-8">
-              <h3 className="text-sm uppercase tracking-widest text-charcoal/50 dark:text-cream/50 mb-2">Email</h3>
-              <a href="mailto:sethiimehak21@gmail.com" className="text-lg hover:text-burgundy dark:hover:text-dustyRose transition-colors uppercase tracking-wider">
+          
+          <div className="space-y-12 relative z-10 w-full">
+            <div className="group">
+              <h3 className="text-sm uppercase tracking-widest text-[#A97872] mb-3 font-semibold">Send an Email</h3>
+              <a 
+                href="mailto:sethiimehak21@gmail.com" 
+                className="text-xl md:text-2xl text-[#3A241A] hover:text-[#A97872] transition-colors font-serif lowercase block p-4 border border-[#3A241A]/10 rounded bg-[#FDFBF7] hover:shadow-md max-w-md mx-auto"
+              >
                 sethiimehak21@gmail.com
               </a>
             </div>
-            <div>
-              <span className="block text-charcoal/40 dark:text-cream/40 mb-1">Social</span>
-              <a href="https://share.google/WeKiJ3Y4hwpEdU0oq" target="_blank" rel="noopener noreferrer" className="hover:text-burgundy dark:hover:text-dustyRose transition-colors">Instagram</a>
+            
+            <div className="group">
+              <h3 className="text-sm uppercase tracking-widest text-[#A97872] mb-4 font-semibold">Social Media</h3>
+              <div className="flex justify-center gap-8">
+                <a 
+                  href="https://share.google/WeKiJ3Y4hwpEdU0oq" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-block text-lg text-[#3A241A] hover:text-[#A97872] transition-colors tracking-widest uppercase font-sans border-b border-transparent hover:border-[#A97872] pb-1"
+                >
+                  Instagram
+                </a>
+                <a 
+                  href="https://www.youtube.com/@author_mehaksethi/shorts" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-block text-lg text-[#3A241A] hover:text-[#A97872] transition-colors tracking-widest uppercase font-sans border-b border-transparent hover:border-[#A97872] pb-1"
+                >
+                  YouTube
+                </a>
+              </div>
             </div>
           </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <form onSubmit={handleSubmit} className="bg-white dark:bg-[var(--color-dark-brown)] p-8 shadow-sm border border-charcoal/5 dark:border-cream/5 space-y-6">
-            <div>
-              <label className="block text-xs uppercase tracking-widest mb-2 opacity-70">Name</label>
-              <input 
-                type="text" 
-                name="name"
-                required
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full p-3 border-b border-charcoal/20 dark:border-cream/20 bg-transparent focus:outline-none focus:border-charcoal dark:focus:border-cream transition-colors"
-              />
-            </div>
-            <div>
-              <label className="block text-xs uppercase tracking-widest mb-2 opacity-70">Email</label>
-              <input 
-                type="email" 
-                name="email"
-                required
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full p-3 border-b border-charcoal/20 dark:border-cream/20 bg-transparent focus:outline-none focus:border-charcoal dark:focus:border-cream transition-colors"
-              />
-            </div>
-            <div>
-              <label className="block text-xs uppercase tracking-widest mb-2 opacity-70">Reason</label>
-              <select 
-                name="reason"
-                value={formData.reason}
-                onChange={handleChange}
-                className="w-full p-3 border-b border-charcoal/20 dark:border-cream/20 bg-transparent focus:outline-none focus:border-charcoal dark:focus:border-cream transition-colors appearance-none cursor-pointer"
-              >
-                <option value="General Message" className="bg-cream dark:bg-charcoal text-charcoal dark:text-cream">General Message</option>
-                <option value="Book Feedback" className="bg-cream dark:bg-charcoal text-charcoal dark:text-cream">Book Feedback</option>
-                <option value="Collaboration Request" className="bg-cream dark:bg-charcoal text-charcoal dark:text-cream">Collaboration Request</option>
-                <option value="Fan Message" className="bg-cream dark:bg-charcoal text-charcoal dark:text-cream">Fan Message</option>
-                <option value="PDF Purchase Request" className="bg-cream dark:bg-charcoal text-charcoal dark:text-cream">PDF Purchase Request</option>
-              </select>
-            </div>
-            <div>
-              <label className="block text-xs uppercase tracking-widest mb-2 opacity-70">Message</label>
-              <textarea 
-                name="message"
-                required
-                rows="4"
-                value={formData.message}
-                onChange={handleChange}
-                className="w-full p-3 border-b border-charcoal/20 dark:border-cream/20 bg-transparent focus:outline-none focus:border-charcoal dark:focus:border-cream transition-colors resize-none"
-              ></textarea>
-            </div>
-            <button 
-              type="submit" 
-              disabled={status === 'sending'}
-              className="w-full py-4 bg-charcoal text-cream dark:bg-cream dark:text-charcoal hover:bg-burgundy dark:hover:bg-dustyRose transition-colors tracking-widest uppercase text-sm font-medium disabled:opacity-50"
-            >
-              {status === 'sending' ? 'Sending...' : 'Send Message'}
-            </button>
-            
-            {status === 'success' && (
-              <motion.p 
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                className="text-center text-sm text-green-700 dark:text-green-400 mt-4"
-              >
-                Your message has been sent successfully.
-              </motion.p>
-            )}
-            {status === 'error' && (
-              <motion.p 
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                className="text-center text-sm text-red-700 dark:text-red-400 mt-4"
-              >
-                Error sending message.
-              </motion.p>
-            )}
-          </form>
         </motion.div>
       </div>
     </div>

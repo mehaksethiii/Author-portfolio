@@ -1,15 +1,16 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   --color-ivory: #FFFFFF;
-  --color-cream: #F9F1EB; /* Sweet Sunset Cream */
-  --color-charcoal: #3D2C2E; /* Deep warm espresso for readable text */
-  --color-burgundy: #FEC3E1; /* Sweet Sunset Pink */
-  --color-dusty-rose: #FFCEDA; /* Sweet Sunset Lighter Pink */
-  --color-subtle-gold: #FEF1C8; /* Sweet Sunset Pastel Yellow */
-  --color-dark-brown: #FFDAD5; /* Sweet Sunset Peach/Pink for alternate sections */
+  --color-cream: #F5EBDD; /* warm creamy beige */
+  --color-charcoal: #3A241A; /* rich dark brown */
+  --color-burgundy: #A97872; /* muted dusty rose */
+  --color-dusty-rose: #A97872; /* muted dusty rose */
+  --color-subtle-gold: #B89A62; /* soft antique gold */
+  --color-dark-brown: #2A1812; /* deep chocolate */
+  --color-soft-beige: #E8D8C2;
   --font-serif: "Playfair Display", serif;
   --font-sans: "Inter", sans-serif;
 }
@@ -40,3 +41,11 @@
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-charcoal/40 dark:bg-cream/40;
 }
+
+@layer utilities {
+  .font-cursive {
+    font-family: 'Great Vibes', cursive;
+  }
+}
+
+

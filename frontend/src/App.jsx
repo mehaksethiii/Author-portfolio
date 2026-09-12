@@ -1,6 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+﻿import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import About from './pages/About';
+import CurrentlyReading from './pages/CurrentlyReading';
+import UpcomingBooks from './pages/UpcomingBooks';
 import Books from './pages/Books';
 import BookDetail from './pages/BookDetail';
 import Poetry from './pages/Poetry';
@@ -31,7 +34,7 @@ function App() {
         <Navbar />
         <main className="flex-grow">
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home />} />`n            <Route path="/about" element={<About />} />`n            <Route path="/currently-reading" element={<CurrentlyReading />} />`n            <Route path="/upcoming-books" element={<UpcomingBooks />} />
             <Route path="/books" element={<Books />} />
             <Route path="/books/:id" element={<BookDetail />} />
             <Route path="/poetry" element={<Poetry />} />
@@ -48,3 +51,6 @@ function App() {
 }
 
 export default App;
+
+
+
