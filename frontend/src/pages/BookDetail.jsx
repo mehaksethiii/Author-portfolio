@@ -1,3 +1,4 @@
+﻿import { API_URL } from '../config';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useParams, useNavigate, Link } from 'react-router-dom';
@@ -22,7 +23,7 @@ const BookDetail = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const { data } = await axios.get(`http://localhost:5000/api/books/${id}`);
+        const { data } = await axios.get(``${API_URL}`/api/books/${id}`);
         setBook(data);
         setLoading(false);
       } catch (err) {
@@ -51,7 +52,7 @@ const BookDetail = () => {
     e.preventDefault();
     setSubmitStatus('submitting');
     try {
-      await axios.post('http://localhost:5000/api/messages', {
+      await axios.post('`${API_URL}`/api/messages', {
         name: formData.name,
         email: formData.email,
         reason: 'PDF Purchase Request',
@@ -222,3 +223,4 @@ const BookDetail = () => {
 };
 
 export default BookDetail;
+

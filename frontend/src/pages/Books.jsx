@@ -1,3 +1,4 @@
+﻿import { API_URL } from '../config';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -19,7 +20,7 @@ const Books = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const { data } = await axios.get('http://localhost:5000/api/books');
+        const { data } = await axios.get('`${API_URL}`/api/books');
         setBooks(data);
         setLoading(false);
       } catch (error) {
@@ -228,3 +229,4 @@ const Books = () => {
 };
 
 export default Books;
+

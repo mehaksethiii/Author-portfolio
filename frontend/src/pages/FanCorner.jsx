@@ -1,3 +1,4 @@
+﻿import { API_URL } from '../config';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -21,8 +22,8 @@ const FanCorner = () => {
     const fetchData = async () => {
       try {
         const [reviewsRes, booksRes] = await Promise.all([
-          axios.get('http://localhost:5000/api/reviews'),
-          axios.get('http://localhost:5000/api/books')
+          axios.get('`${API_URL}`/api/reviews'),
+          axios.get('`${API_URL}`/api/books')
         ]);
         setReviews(reviewsRes.data);
         setBooks(booksRes.data);
@@ -37,7 +38,7 @@ const FanCorner = () => {
     e.preventDefault();
     setSubmitStatus('submitting');
     try {
-      await axios.post('http://localhost:5000/api/reviews', formData);
+      await axios.post('`${API_URL}`/api/reviews', formData);
       setSubmitStatus('success');
       alert("Your review has been submitted and is pending approval.");
       setIsModalOpen(false);
@@ -185,3 +186,4 @@ const FanCorner = () => {
 };
 
 export default FanCorner;
+
