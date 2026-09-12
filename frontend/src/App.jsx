@@ -34,7 +34,10 @@ function App() {
         <Navbar />
         <main className="flex-grow">
           <Routes>
-            <Route path="/" element={<Home />} />`n            <Route path="/about" element={<About />} />`n            <Route path="/currently-reading" element={<CurrentlyReading />} />`n            <Route path="/upcoming-books" element={<UpcomingBooks />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/currently-reading" element={<CurrentlyReading />} />
+            <Route path="/upcoming-books" element={<UpcomingBooks />} />
             <Route path="/books" element={<Books />} />
             <Route path="/books/:id" element={<BookDetail />} />
             <Route path="/poetry" element={<Poetry />} />
@@ -51,6 +54,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
