@@ -38,7 +38,7 @@ const FanCorner = () => {
     e.preventDefault();
     setSubmitStatus('submitting');
     try {
-      const res = await axios.post(${API_URL}/api/reviews, formData);
+      const res = await axios.post(`${API_URL}/api/reviews`, formData);
       setSubmitStatus('success');
       // Map book title for instant display
       const selectedBook = books.find(b => b._id === formData.bookId);
@@ -190,6 +190,7 @@ const FanCorner = () => {
 };
 
 export default FanCorner;
+
 
 
 
