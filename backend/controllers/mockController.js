@@ -52,7 +52,12 @@ export const getBookById = async (req, res) => {
 // Reviews
 export const getReviews = async (req, res) => {
   const reviews = getReviewsData();
-  res.json(reviews.filter(r => r.status === 'approved'));
+  const approvedReviews = reviews.filter(r => r.status === 'approved');
+  const populatedReviews = approvedReviews.map(r => {
+    const book = books.find(b => b._id === r.bookId);
+    return { ...r, bookId: book ? { _id: book._id, title: book.title } : null };
+  });
+  res.json(populatedReviews);
 };
 
 export const createReview = async (req, res) => {
@@ -90,3 +95,4 @@ export const createMessage = async (req, res) => {
   console.log("New Message Received:", newMessage);
   res.status(201).json(newMessage);
 };
+

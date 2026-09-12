@@ -38,9 +38,13 @@ const FanCorner = () => {
     e.preventDefault();
     setSubmitStatus('submitting');
     try {
-      await axios.post(`${API_URL}/api/reviews`, formData);
+      const res = await axios.post(${API_URL}/api/reviews, formData);
       setSubmitStatus('success');
-      alert("Your review has been submitted and is pending approval.");
+      // Map book title for instant display
+      const selectedBook = books.find(b => b._id === formData.bookId);
+      const newReview = { ...res.data, bookId: { _id: formData.bookId, title: selectedBook ? selectedBook.title : '' } };
+      setReviews([newReview, ...reviews]);
+      alert("Your review has been successfully submitted!");
       setIsModalOpen(false);
       setFormData({ name: '', bookId: '', rating: 5, reviewText: '' });
       setSubmitStatus('');
@@ -142,7 +146,7 @@ const FanCorner = () => {
               
               <h2 className="text-2xl font-serif mb-2">Submit a Review</h2>
               <p className="text-sm text-charcoal/60 dark:text-cream/60 mb-6">
-                Your review will be submitted for approval before appearing on the site.
+                Your review will appear immediately on the site.
               </p>
 
               <form onSubmit={handleSubmitReview} className="space-y-4">
@@ -186,6 +190,7 @@ const FanCorner = () => {
 };
 
 export default FanCorner;
+
 
 
 
