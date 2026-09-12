@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-ivory: #FFFFFF;
+  --color-cream: #F9F1EB; /* Sweet Sunset Cream */
+  --color-charcoal: #3D2C2E; /* Deep warm espresso for readable text */
+  --color-burgundy: #FEC3E1; /* Sweet Sunset Pink */
+  --color-dusty-rose: #FFCEDA; /* Sweet Sunset Lighter Pink */
+  --color-subtle-gold: #FEF1C8; /* Sweet Sunset Pastel Yellow */
+  --color-dark-brown: #FFDAD5; /* Sweet Sunset Peach/Pink for alternate sections */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-cream text-charcoal font-sans transition-colors duration-300;
+  }
+}
+
+.font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-charcoal/20 dark:bg-cream/20 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-charcoal/40 dark:bg-cream/40;
+}
