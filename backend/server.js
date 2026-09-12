@@ -1,33 +1,20 @@
 import express from 'express';
-import dotenv from 'dotenv';
 import cors from 'cors';
-import connectDB from './config/db.js';
-
-import bookRoutes from './routes/bookRoutes.js';
-import reviewRoutes from './routes/reviewRoutes.js';
-import messageRoutes from './routes/messageRoutes.js';
-
-dotenv.config();
-
-connectDB();
+import { getBooks, getBookById, getReviews, createReview, createMessage } from './controllers/mockController.js';
 
 const app = express();
-
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Routes
-app.use('/api/books', bookRoutes);
-app.use('/api/reviews', reviewRoutes);
-app.use('/api/messages', messageRoutes);
+const router = express.Router();
+router.get('/books', getBooks);
+router.get('/books/:id', getBookById);
+router.get('/reviews', getReviews);
+router.post('/reviews', createReview);
+router.post('/messages', createMessage);
 
-app.get('/', (req, res) => {
-  res.send('API is running...');
-});
+app.use('/api', router);
+app.get('/', (req, res) => res.send('API is running in mock mode...'));
 
 const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT} in mock database mode`));
