@@ -1,6 +1,9 @@
 import express from 'express';
 import cors from 'cors';
-import { getBooks, getBookById, getReviews, createReview, createMessage } from './controllers/mockController.js';
+import { connectDB } from './config/db.js';
+import { getBooks, getBookById, getReviews, createReview, createMessage } from './controllers/pgController.js';
+
+connectDB();
 
 const app = express();
 app.use(cors());
@@ -14,7 +17,7 @@ router.post('/reviews', createReview);
 router.post('/messages', createMessage);
 
 app.use('/api', router);
-app.get('/', (req, res) => res.send('API is running in mock mode...'));
+app.get('/', (req, res) => res.send('API is running with Postgres DB...'));
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT} in mock database mode`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT} with Postgres support`));
