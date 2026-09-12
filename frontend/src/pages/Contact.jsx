@@ -17,7 +17,7 @@ const Contact = () => {
           <div className="w-16 h-[1px] bg-[#A97872] mb-8 relative z-10"></div>
           
           <p className="text-[#3A241A]/80 mb-12 leading-relaxed text-lg max-w-lg relative z-10 font-sans">
-            Whether you want to share your thoughts on my books, request a collaboration, or just say hello—I'd absolutely love to hear from you. 
+            Whether you want to share your thoughts on my books, request a collaboration, or just say hello - I'd absolutely love to hear from you. 
           </p>
           
           <div className="space-y-12 relative z-10 w-full">

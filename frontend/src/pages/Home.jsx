@@ -1,4 +1,4 @@
-﻿import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import InteractiveBook3D from '../components/InteractiveBook3D';
 import AuroraBackground from '../components/AuroraBackground';
