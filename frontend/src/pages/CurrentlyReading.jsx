@@ -51,7 +51,7 @@ const CurrentlyReading = () => {
             
             <div className="space-y-6 text-lg text-[#3A241A]/80 leading-relaxed font-sans">
               <p>
-                <strong>Watch Me</strong> is an electrifying addition to the bestselling <em>Shatter Me</em> series by Tahereh Mafi. Her writing style is so incredibly unique, poetic, and intense—it feels like you are reading someone's racing heartbeat on a page.
+                <strong>Watch Me</strong> is an electrifying addition to the bestselling <em>Shatter Me</em> series by Tahereh Mafi. Her writing style is so incredibly unique, poetic, and intenseï¿½it feels like you are reading someone's racing heartbeat on a page.
               </p>
               <p>
                 This thrilling installment dives deep into the complex minds of the characters, unfolding dark secrets, raw emotions, and the gripping tension that Tahereh Mafi is so well known for. 

@@ -20,7 +20,7 @@ const Books = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       try {
-        const { data } = await axios.get('`${API_URL}`/api/books');
+        const { data } = await axios.get(`${API_URL}/api/books`);
         setBooks(data);
         setLoading(false);
       } catch (error) {
@@ -229,4 +229,6 @@ const Books = () => {
 };
 
 export default Books;
+
+
 
