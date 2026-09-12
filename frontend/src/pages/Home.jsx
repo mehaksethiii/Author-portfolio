@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import InteractiveBook3D from '../components/InteractiveBook3D';
 
 const Home = () => {
   return (
@@ -110,11 +111,12 @@ const Home = () => {
       <section className="py-24 px-4 bg-white">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
           <div className="w-full md:w-1/2 flex items-center justify-center">
-            <img 
-              src="/images/front-cover.jpeg" 
-              alt="You're My Favourite Memory Cover" 
-              className="max-h-[500px] w-auto object-contain shadow-2xl rounded-sm border border-charcoal/10 dark:border-cream/10"
-            />
+            <div className="w-full h-[500px]">
+              <InteractiveBook3D 
+                frontCoverUrl="/images/front-cover.jpeg"
+                backCoverUrl="/images/back-cover.jpeg"
+              />
+            </div>
           </div>
           <div className="w-full md:w-1/2">
             <h2 className="text-sm tracking-[0.2em] text-burgundy dark:text-dustyRose uppercase mb-4">Featured Novel</h2>

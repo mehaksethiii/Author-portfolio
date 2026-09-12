@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+import InteractiveBook3D from '../components/InteractiveBook3D';
 import { X } from 'lucide-react';
 import axios from 'axios';
 
@@ -75,16 +76,22 @@ const BookDetail = () => {
           
           {/* Book Viewer */}
           <div className="w-full lg:w-1/2 sticky top-28 flex items-center justify-center">
-            <img 
-              src={(() => {
-                if (book.title === "You're My Favourite Memory") return "/images/front-cover.jpeg";
-                if (book.title === "My Poetry") return "/images/my poetryy BOOK.jpeg";
-                if (book.title === "Whispers of Serenity") return "/images/whispers-cover.png";
-                return "/images/fav-memory-cover.jpeg"; // fallback
-              })()}
-              alt={book.title} 
-              className="max-h-[600px] w-auto object-contain shadow-2xl rounded-sm border border-charcoal/10 dark:border-cream/10"
-            />
+            <div className="w-full h-[600px] flex items-center justify-center">
+              <InteractiveBook3D 
+                frontCoverUrl={(() => {
+                  if (book.title === "You're My Favourite Memory") return "/images/front-cover.jpeg";
+                  if (book.title === "My Poetry") return "/images/my poetryy BOOK.jpeg";
+                  if (book.title === "Whispers of Serenity") return "/images/whispers-cover.png";
+                  return "/images/fav-memory-cover.jpeg";
+                })()}
+                backCoverUrl={(() => {
+                  if (book.title === "You're My Favourite Memory") return "/images/back-cover.jpeg";
+                  if (book.title === "My Poetry") return "/images/my poetryy BOOK.jpeg"; 
+                  if (book.title === "Whispers of Serenity") return "/images/whispers-cover.png"; 
+                  return "/images/back-cover.jpeg";
+                })()}
+              />
+            </div>
           </div>
 
           {/* Details */}
