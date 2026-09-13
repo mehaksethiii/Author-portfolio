@@ -13,8 +13,8 @@ const BookModel = ({ title, author, isHovered, coverImage, backCoverImage }) => 
   });
 
   // Load textures if URLs are provided
-  const frontTexture = coverImage ? useTexture(coverImage) : null;
-  const backTexture = backCoverImage ? useTexture(backCoverImage) : null;
+  const frontTextureArray = useTexture(coverImage ? [coverImage] : []); const frontTexture = frontTextureArray[0] || null;
+  const backTextureArray = useTexture(backCoverImage ? [backCoverImage] : []); const backTexture = backTextureArray[0] || null;
   
   if (frontTexture) frontTexture.colorSpace = THREE.SRGBColorSpace;
   if (backTexture) backTexture.colorSpace = THREE.SRGBColorSpace;
@@ -98,3 +98,4 @@ const ThreeDBook = ({ title = "You're My Favourite Memory", author = "Mehak Seth
 };
 
 export default ThreeDBook;
+

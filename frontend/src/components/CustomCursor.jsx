@@ -16,8 +16,8 @@ const CustomCursor = () => {
     { damping: 40, stiffness: 100, mass: 1.6 },
   ];
 
-  const tailsX = configs.map(cfg => useSpring(cursorX, cfg));
-  const tailsY = configs.map(cfg => useSpring(cursorY, cfg));
+  const tX0 = useSpring(cursorX, configs[0]); const tX1 = useSpring(cursorX, configs[1]); const tX2 = useSpring(cursorX, configs[2]); const tX3 = useSpring(cursorX, configs[3]); const tX4 = useSpring(cursorX, configs[4]); const tailsX = [tX0, tX1, tX2, tX3, tX4];
+  const tY0 = useSpring(cursorY, configs[0]); const tY1 = useSpring(cursorY, configs[1]); const tY2 = useSpring(cursorY, configs[2]); const tY3 = useSpring(cursorY, configs[3]); const tY4 = useSpring(cursorY, configs[4]); const tailsY = [tY0, tY1, tY2, tY3, tY4];
 
   useEffect(() => {
     if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
@@ -102,4 +102,5 @@ const CustomCursor = () => {
 };
 
 export default CustomCursor;
+
 
